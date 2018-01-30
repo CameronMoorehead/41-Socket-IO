@@ -56,6 +56,7 @@ export const start = () => {
           return resolve();
         });
 
+        // setup socket.io
         socketInit(state.http);
       })
       .catch(reject);

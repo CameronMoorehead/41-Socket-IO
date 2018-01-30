@@ -14,6 +14,8 @@
     Welcome! Please signup or login to participate to the leaderboard,
     otherwise click 'continue anonymously'!
   </p>
+
+  <!-- For Backend !-->
   <h2>Log In</h2>
 
   <form id='login'>
@@ -26,6 +28,7 @@
 
   <h2>Sign Up</h2>
 
+
   <form id='signup'>
     <input id='signup-username' />
     <br />
@@ -36,7 +39,27 @@
     <button type='submit'>SIGNUP</button>
   </form>
 
+  <!-- For Now !-->
+
+  <h2>Set Username</h2>
+
+  <form id='set-username-form'>
+    <input id='username-input'/>
+    <button type='submit'>SAVE</button>
+  </form>
+
+  <h2>Send Message</h2>
+
+  <form id='send-message-form'>
+    <input id='message-input' />
+    <br />
+    <button>SEND</button>
+  </form>
+
+  <div id='messages'></div>
+
 </body>
  <script src='/socket.io/socket.io.js'></script>
+ <script src='/js/models/chat-message.js'></script>
  <script src='/js/main.js'></script>
 </html>
