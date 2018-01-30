@@ -1,6 +1,6 @@
 'use strict';
 
-import { log } from '../logger';
+import { log } from '../lib/logger';
 
 export default (request, response, next) => {
   log('verbose', `Processing: ${request.method} On: ${request.url}`);

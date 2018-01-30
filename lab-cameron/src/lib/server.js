@@ -5,6 +5,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import fs from 'fs-extra';
 import favicon from 'serve-favicon';
+import routes from '../route';
 
 import { log } from './logger';
 
@@ -15,9 +16,14 @@ const state = {
 
 const app = express();
 
+// Global bodyParser
 app.use(bodyParser.json());
 
+// Serve favicon
 app.use(favicon(__dirname + '../../../public/favicon.ico'));
+
+// Routes and middleware
+app.use(routes);
 
 // catch all 404
 app.all('*', (request, response) => {
