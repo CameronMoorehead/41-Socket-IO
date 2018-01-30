@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href='./styles/main.css' rel='stylesheet' />
+  <title>SOCK-IO-TICK</title>
+</head>
+<body>
+  <h1>SOCKET IO TIC-TAC-TOE</h1>
+
+  <p>
+    Welcome! Please signup or login to participate to the leaderboard,
+    otherwise click 'continue anonymously'!
+  </p>
+  <h2>Log In</h2>
+
+  <form id='login'>
+    <input id='login-username' />
+    <br />
+    <input id='login-password' />
+    <br />
+    <button type='submit'>LOGIN</button>
+  </form>
+
+  <h2>Sign Up</h2>
+
+  <form id='signup'>
+    <input id='signup-username' />
+    <br />
+    <input id='signup-email' />
+    <br />
+    <input id='signup-password' />
+    <br />
+    <button type='submit'>SIGNUP</button>
+  </form>
+
+</body>
+ <script src='/socket.io/socket.io.js'></script>
+ <script src='/js/main.js'></script>
+</html>

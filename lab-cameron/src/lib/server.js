@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import fs from 'fs-extra';
 import favicon from 'serve-favicon';
 import routes from '../route';
+import { socketInit } from '../socketIO';
 
 import { log } from './logger';
 
@@ -24,6 +25,9 @@ app.use(favicon(__dirname + '../../../public/favicon.ico'));
 
 // Routes and middleware
 app.use(routes);
+
+// Static mounts
+app.use(express.static(__dirname + '../../../public'));
 
 // catch all 404
 app.all('*', (request, response) => {
@@ -45,12 +49,14 @@ export const start = () => {
       return reject(new Error('__SERVER_ERROR__ Server is already on'));
     }
     state.isOn = true;
-    db.start()
+    return db.start()
       .then(() => {
         state.http = app.listen(process.env.PORT, () => {
           log('info', `Server is listening on port: ${process.env.PORT}`);
           return resolve();
         });
+
+        socketInit(state.http);
       })
       .catch(reject);
   });
