@@ -1,6 +1,5 @@
-let io = null;
 export const socketInit = server => {
-  io = require('socket.io')(server);
+  const io = require('socket.io')(server);
 
   // Localized state to change into DB state
   const USERS = {};
