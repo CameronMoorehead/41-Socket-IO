@@ -8,7 +8,7 @@ import httpError from 'http-errors';
 export default new Router()
   .post('/signup', (request, response, next) => {
     return Account.create(request.body)
-      .then(account => account.tokenCreate())
+      .then(account => account.createToken())
       .then(token => {
         response.cookie('X-SOCKET-TOKEN', token, { maxAge: 900000 });
         response.send(token);

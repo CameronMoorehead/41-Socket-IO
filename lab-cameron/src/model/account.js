@@ -24,7 +24,6 @@ const accountSchema = new Schema({
   },
   tokenSeed: {
     type: String,
-    required: true,
     unique: true,
   },
 });

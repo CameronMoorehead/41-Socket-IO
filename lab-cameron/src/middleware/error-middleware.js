@@ -1,6 +1,6 @@
 'use strict';
 
-import log from '../lib/logger';
+import { log } from '../lib/logger';
 
 module.exports = (error, request, response, next) => {
   // ================ HTTP ERRORS ================
