@@ -6,6 +6,7 @@ import { Router } from 'express';
 import accountRouter from './account-router';
 import profileRouter from './profile-router';
 import errorMiddleware from '../middleware/error-middleware';
+import bindResponseMethods from '../middleware/bind-response-methods';
 
 export default new Router()
   .use([
@@ -14,6 +15,7 @@ export default new Router()
       credentials: true,
     }),
     loggerMiddleware,
+    bindResponseMethods,
     accountRouter,
     profileRouter,
     errorMiddleware,

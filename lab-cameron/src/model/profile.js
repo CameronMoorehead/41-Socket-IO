@@ -29,7 +29,7 @@ Profile.create = function(request) {
   })
     .save()
     .then(profile => {
-      return request.user.save()
+      return request.account.save()
         .then(() => profile);
     });
 };

@@ -17,7 +17,7 @@ export default new Router()
       .catch(next);
   })
   .get('/profiles/me', bearerAuth, (request, response, next) => {
-    Profile.findOne({ account: request.profile._id })
+    Profile.findOne({ account: request.account._id })
       .then(profile => {
         if (!profile) {
           return next(httpError(404, '__ERROR__ Profile not found'));

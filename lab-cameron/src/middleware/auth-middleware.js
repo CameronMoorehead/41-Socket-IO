@@ -7,7 +7,8 @@ import Account from '../model/account';
 import { promisify } from '../lib/util';
 
 export const basicAuth = (request, response, next) => {
-  let authorization = request.headers;
+  let { authorization } = request.headers;
+  console.log(authorization);
 
   if (!authorization) {
     return next(httpError(400, '__ERROR__ Authorization header required'));
@@ -54,7 +55,7 @@ export const bearerAuth = (request, response, next) => {
   }
 
   return promisify(jwt.verify)(token, process.env.SECRET)
-    .then(({ randomHash}) => Account.findOne({ randomHash }))
+    .then(({ randomHash }) => Account.findOne({ randomHash }))
     .then(account => {
       if (!account) {
         throw new httpError(401, '__ERROR__ Account not found');
